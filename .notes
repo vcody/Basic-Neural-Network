@@ -1,0 +1,35 @@
+- Neuron: basic unit of neural network
+    -> behaves like function (takes input, computes output)
+- ex.) for two-input neuron...
+    1. each input multiplied by "weight"
+    2. all weighted inputs added together with "bias"
+    3. sum is passed through "activation function"
+- Feedforward: process of passing inputs forward to get outputs
+- Simple neural network design:
+    -> Input layer => Hidden layer(s) => Output layer
+- Loss: quantifies how "good" the network is training
+    -> Loss as function of weight/bias
+    -> Mean Squared Error loss (average over all squared errors):
+        ... MSE = (1 / n) * summation(i=1, n) (y_true - y_pred) ^ 2
+        ... where:
+            1. n = # of samples
+            2. y = variable being predicted
+            3. y_true = true value of variable (correct solution)
+            4. y_pred = predicted value of variable (network output)
+        ... (y_true - y_pred) ^ 2 = squared error
+- By training a network, you work to minimize loss
+- Loss is minimized by changing weights/bias
+- Stochastic gradient descent as optimization algorithm
+    -> w1 - η * (∂L / ∂w1)
+    ... where:
+        1. η = learning rate (constant)
+        2. ∂ = partial derivative
+    -> If (∂L / ∂w1) > 0 => w1 decreases => L decreases
+    -> If (∂L / ∂w1) < 0 => w1 increases => L decreases
+- Work on one sample per time
+- Training process:
+    1. Choose one sample
+    2. Calculate all partial derivatives of loss 
+        e.g. (∂L / ∂w1), (∂L / ∂w2), etc...
+    3. Update each weight/bias
+    4. Repeat until loss is sufficiently minimized
